@@ -18,6 +18,7 @@ import Link from "next/link";
 import { LinkedInContext } from "@/context/linkedInContext";
 
 const Header = () => {
+  const { user } = useContext(LinkedInContext)
   const route = useRouter();
   const pathname = usePathname();
   // const [showHeader, setShowHeader] = useState(false);
@@ -47,7 +48,7 @@ const Header = () => {
       const response = await axios.get("/api/logout", {
         withCredentials: true,
       });
-      
+
       if (response.data.success) {
         route.push("/login");
       }
@@ -56,7 +57,7 @@ const Header = () => {
     }
   };
 
-  return  (
+  return (
     <div className="w-full fixed top-0 left-0 z-100 bg-white  pb-5 pt-2">
       <div className="w-full px-4 flex items-center justify-between">
         <div className="flex items-center gap-2 mr-2">
@@ -80,37 +81,66 @@ const Header = () => {
                 <Link
                   href={`/${menu.path}`}
                   key={menu.title}
-                  className={`flex items-center flex-col py-1 px-5 border-b-2 ${
-                    menu.path === pathenameValue
+                  className={`flex items-center flex-col py-1 px-5 border-b-2 ${menu.path === pathenameValue
                       ? "border-gray-500 text-black font-semibold"
                       : "border-white text-slate-600"
-                  } border-gray-500  cursor-pointer`}
+                    } border-gray-500  cursor-pointer`}
                 >
                   <menu.image
-                    className={`w-5 h-5  ${
-                      menu.path === pathenameValue &&
+                    className={`w-5 h-5  ${menu.path === pathenameValue &&
                       "-rotate-12 transition-all duration-500"
-                    } `}
+                      } `}
                   />
                   <p className="font-semibold text-[14px] ">{menu.title}</p>
                 </Link>
               ))}
             </div>
           </div>
-<div className="md:block hidden">
+          <div className="md:block hidden">
 
-          <div
-            onClick={() => setOption((prev) => !prev)}
-            className={`flex items-center flex-col py-1 px-5 border-b-2  ${
-              pathenameValue === "profile"
-              ? "border-gray-500 text-black font-semibold"
-              : "border-white text-slate-600"
-            } border-gray-500  cursor-pointer`}
+            <div
+              onClick={() => setOption((prev) => !prev)}
+              className={`relative group flex items-center flex-col py-1 px-5 border-b-2  ${pathenameValue === "profile"
+                  ? "border-gray-500 text-black font-semibold"
+                  : "border-white text-slate-600"
+                } border-gray-500  cursor-pointer`}
             >
-            <UserCircle2 className="w-5 h-5" />
-            <p className="font-semibold text-[14px] ">Me</p>
-          </div>
+              {user?.profile_image ? (
+                <img src={user.profile_image} className="w-6 h-6 object-cover rounded-full overflow-hidden" alt="" />
+              ) : (
+                <div className="h-6 w-6 text-sm rounded-full border border-gray-400 overflow-hidden flex items-center justify-center font-semibold">{user?.full_name.charAt(0)}</div>
+              )}
+              {/* <UserCircle2 className="w-5 h-5" /> */}
+              <p className="font-semibold text-[14px] ">Me</p>
+
+
+              <div className=" absolute right-10 top-16 hidden group-hover:block w-[250px] bg-white rounded-xl overflow-hidden border border-gray-300 transition-all  duration-500 ">
+                <div className=" relative h-16 ">
+                  {user?.cover_image ? (
+                    <img src={user.cover_image} className='w-full h-full object-cover overflow-hidden' alt="" />
+                  ) : (
+                    <div className='bg-gray-400 h-full w-full'></div>
+                  )}
+                  <div className=" absolute top-8  left-6 h-16  flex items-center justify-center w-16 bg-green-600 rounded-full border-2 border-white">
+                    {user?.profile_image ? (
+                      <img src={user.profile_image} className='w-16 h-16 object-cover rounded-full' alt="" />
+                    ) : (
+                      <p className="text-[30px] text-white">{user?.full_name.charAt(0)}</p>
+                    )}
+                  </div>
+                </div>
+                <div className="px-4 py-4 flex flex-col mt-10">
+                  <p className="text-xl font-semibold text-gray-8">{user?.full_name}</p>
+                  <p className="text-[12px] text-gray-900">Web Developer</p>
+                  <p className="text-[12px] text-gray-500">Bhopal, Madhya Pradesh</p>
+
+                </div>
+              </div>
+
+
             </div>
+
+          </div>
 
           {option && (
             <div className="absolute top-16 right-2 z-20 bg-white p-3 border border-gray-400 rounded w-[300px] flex flex-col gap-3">
@@ -175,20 +205,19 @@ const Header = () => {
               <div className="flex items-center justify-center h-full  flex-col gap-0.5 p-2">
                 <div>
 
-                {navbarMenuMobile.map((menu) => (
-                  <Link
-                  href={`/${menu.path}`}
-                  key={menu.title}
-                  className={`px-4 py-2 flex  w-full items-center justify-center gap-2 rounded-xl  ${
-                    menu.path === pathenameValue
-                    ? "border-gray-400  bg-gray-800 text-white font-semibold"
-                    : "border-white text-slate-200"
-                  } border-white  cursor-pointer`}
-                  >
-                    {/* <menu.image className="w-4 h-4  " /> */}
-                    <p className="font-semibold text-[20px] ">{menu.title}</p>
-                  </Link>
-                ))}
+                  {navbarMenuMobile.map((menu) => (
+                    <Link
+                      href={`/${menu.path}`}
+                      key={menu.title}
+                      className={`px-4 py-2 flex  w-full items-center justify-center gap-2 rounded-xl  ${menu.path === pathenameValue
+                          ? "border-gray-400  bg-gray-800 text-white font-semibold"
+                          : "border-white text-slate-200"
+                        } border-white  cursor-pointer`}
+                    >
+                      {/* <menu.image className="w-4 h-4  " /> */}
+                      <p className="font-semibold text-[20px] ">{menu.title}</p>
+                    </Link>
+                  ))}
                 </div>
 
               </div>

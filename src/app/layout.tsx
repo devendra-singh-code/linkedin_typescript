@@ -26,7 +26,7 @@ export default function RootLayout({
         <LinkedInProvider>
           {/* <Header /> */}
           
-          <div className="md:px-10 px-2 py-1 md:py-6 w-full md:pt-[80px] pt-[80px]  h-screen overflow-y-scroll overflow-hidden my-scroll-container">
+          <div className="md:px-10 px-2 py-1 md:py-6 w-full md:pt-[84px] pt-[80px]  h-screen overflow-y-scroll overflow-hidden my-scroll-container">
             {children}
           </div>
           <Toaster />

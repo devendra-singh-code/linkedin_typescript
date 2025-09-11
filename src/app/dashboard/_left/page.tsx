@@ -5,7 +5,7 @@ const Left = ({user}: {user: any}) => {
 
   return (
   <div className="flex flex-col gap-3">
-      <div className=" bg-white rounded-xl overflow-hidden">
+      <div className=" bg-white rounded-xl overflow-hidden border border-gray-300 ">
         <div className=" relative h-16 ">
           {user?.cover_image ? (
             <img src={user.cover_image} className='w-full h-full object-cover overflow-hidden' alt="" />
@@ -30,18 +30,18 @@ const Left = ({user}: {user: any}) => {
           </p>
         </div>
       </div>
-      <div className="px-4 py-3 bg-white rounded-xl">
+      <div className="px-4 py-3 bg-white rounded-xl border border-gray-300">
         <p className="text-[12px] text-gray-500">Grow your career with Premium</p>
         <p className="text-[12px] font-semibold hover:text-blue-700 cursor-pointer hover:underline">Dont miss: Premium for $0</p>
       </div>
-      <div className="px-4 py-3 bg-white rounded-xl">
+      <div className="px-4 py-3 bg-white rounded-xl border border-gray-300">
         <div className="hover:underline cursor-pointer">
           <p className="text-[12px] text-gray-500 ">Connections</p>
           <p className="text-[12px] font-semibold">Discovers new connections</p>
         </div>
       </div>
 
-      <div className="px-4 py-4 bg-white rounded-xl flex flex-col gap-2">
+      <div className="px-4 py-4 bg-white rounded-xl flex flex-col gap-2 border border-gray-300">
         <div className="flex items-center gap-2 text-[14px] font-semibold hover:underline cursor-pointer">
         <Bookmark className="h-4 w-4  " />
           <p className="">Saved items</p>

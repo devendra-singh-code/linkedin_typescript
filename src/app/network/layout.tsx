@@ -14,11 +14,14 @@ export default function NetworkLayout({
   return (
     <div className="flex items-start gap-5">
       <Header />
-      <div className="md:w-[350px] w-full">
+      <div className="flex md:flex-row gap-2 flex-col ">
+
+      <div className="md:w-[370px] w-full">
       {children}
       </div>
       <div className=" w-full">
         <Network_Right />
+      </div>
       </div>
     </div>
   );

@@ -6,14 +6,19 @@ import {
   Calendar1,
   Clock,
   Image,
+  Loader2,
   Plus,
   X,
   Youtube,
 } from "lucide-react";
-import React, { useContext, useState } from "react";
+import { useRouter } from "next/navigation";
+import React, { useContext, useState, useTransition } from "react";
 
 const AddPost = ({ setAddPost }: { setAddPost: any }) => {
   const {user} = useContext(LinkedInContext)
+  const [isPending, startTransition] = useTransition();
+  const router = useRouter();
+
   const [image, setImage] = useState<any>(null);
   const [content, setContent] = useState("");
 
@@ -30,7 +35,13 @@ const handlePost = async (e: any) => {
           "Content-Type": "multipart/form-data",
         },
       })
-      console.log("response ", response)
+      startTransition(() => {
+        router.refresh();
+      });
+      if(response.data.success){
+          // ✅ Revalidate & refetch server data
+        setAddPost(false)
+      }
   } catch (error) {
     console.log("error in add post page", error)
   }
@@ -112,7 +123,7 @@ const handlePost = async (e: any) => {
           <div className="flex w-full items-center justify-end gap-3">
             <Clock className="cursor-pointer h-5 w-5" />
             <button onClick={handlePost} className="px-5 py-1.5 rounded-sm hover:bg-blue-800 text-base text-gray-200 font-semibold cursor-pointer bg-blue-600">
-              Post
+              Post  {isPending ? <Loader2 className="w-4 h-4 animate-spin"  /> : "Post"}
             </button>
           </div>
         </div>

@@ -57,23 +57,23 @@ const Network_Right = () => {
           </div>
         </div> */}
       </div>
-      <div className='bg-white p-4 flex flex-col gap-5 rounded-lg'>
+      <div className='bg-white p-4 flex flex-col gap-5 rounded-lg border border-gray-300'>
         <div className='flex items-center justify-between'>
-          <p>Suggested people for you based on your recent activity</p>
-          <button>Show all</button>
+          <p className='md:text-base text-[12px]'>Suggested people for you based on your recent activity</p>
+         
         </div>
-        <div className='flex flex-wrap  gap-3 items-start'>
+        <div className='flex justify-center items-center flex-wrap  md:gap-3 gap-2 md:items-start'>
         {people.map((item) => (
-              <div key={item.name} className=' relative flex flex-col gap-4 rounded-lg w-[180px] overflow-hidden border border-gray-200'>
+              <div key={item.name} className=' relative flex flex-col gap-4 rounded-lg max-w-[180px] w-full overflow-hidden border border-gray-200'>
               <div className='absolute top-3 right-3 z-10 border border-white bg-gray-700 text-white p-1 rounded-full cursor-pointer'>
-                <X className='h-4 w-4' />
+                <X className='md:h-4 md:w-4 h-3 w-3' />
                 </div>
                 <div className='bg-gray-400 h-14 relative'><p className='bg-green-500 w-16 h-16 rounded-full absolute flex items-center justify-center text-white top-5 left-16'>{item.photo}</p></div>
                 <div className='mt-10 flex items-center justify-center flex-col'>
                   <p>{item.name}</p>
                   <p className='text-[12px] text-gray-500 text-center'>{item.college}</p>
                 </div>
-                <div className='flex flex-col items-center justify-center gap-1'>
+                <div className='flex flex-col items-center justify-center gap-1 p-2'>
                   <p className='text-[12px] text-gray-500 text-center]'>Based on your profile</p>
                   <button className='border border-blue-700 w-full rounded-full text-blue-700 text-sm font-semibold py-1'> Connect</button>
                 </div>

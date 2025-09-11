@@ -3,7 +3,7 @@ import React from 'react'
 import moment from 'moment'
 
 const CommentsOnPost = ({ comment, index }: { comment: any, index: any }) => {
-  console.log("comments", comment)
+  // console.log("comments", comment)
   return (
     <div className={`flex gap-3 w-full  border-b border-gray-200 pb-4`}>
       {/* Avatar */}

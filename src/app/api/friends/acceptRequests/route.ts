@@ -9,6 +9,7 @@ export async function POST(req: NextRequest) {
     try {
         const id = await getDataFromToken(req)   // anju
         const { senderId } = await req.json()     // devendra
+        console.log("senderid", senderId)
         const receiver = await UserModel.findById(id)
         // console.log("anju ", receiver)
         if (!receiver) {

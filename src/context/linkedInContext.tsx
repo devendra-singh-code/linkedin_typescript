@@ -11,6 +11,8 @@ const [userLoggedIn, setUserLoggedIn] = useState(false)
 const [followers, setFollowers] = useState<any>(null)
 const [following, setFollowing] = useState<any>(null)
 
+const [sendRequest, setSendRequest] = useState<any>(null)
+
 
 
 useEffect(() => {
@@ -33,6 +35,7 @@ useEffect(() => {
       const response = await axios.get('/api/follow/followers', {withCredentials: true})
       if(response.data.success){
         setFollowers(response.data.data)
+        setSendRequest(response.data.receiver)
       }
     } catch (error: any) {
       console.log("Error in follower user", error)
@@ -56,7 +59,7 @@ useEffect(() => {
 }, [userLoggedIn])
 
 
-  const value = {user, showHeader, setShowHeader,setUserLoggedIn, followers, following};
+  const value = {user, showHeader, setShowHeader,setUserLoggedIn, followers, following, sendRequest};
 
   return (
     <LinkedInContext.Provider value={value}>

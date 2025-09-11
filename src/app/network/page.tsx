@@ -77,21 +77,28 @@ const page = () => {
           <ArrowUp className="h-4 w-4" />
         </div>
       </div>
+
+      <div className="hidden  md:block">
       <div className="px-4 py-4 flex flex-wrap gap-2 items-center justify-center rounded-xl">
         {optionsTwo.map((option) => (
           <p
-            key={option}
-            className="text-[12px] font-semibold text-gray-700 cursor-pointer hover:underline hover:text-gray-900"
+          key={option}
+          className="text-[12px] font-semibold text-gray-700 cursor-pointer hover:underline hover:text-gray-900"
           >
             {option}
           </p>
         ))}
       </div>
+        </div>
+
+<div className="hidden md:block">
+
       <div className="px-4 rounded-xl flex items-center gap-2">
         <Image className="w-20" src={assets.logo1} alt="" />
         <p className="text-[12px] font-semibold text-gray-600">
           LinkedIn Corporation @ 2024
         </p>
+</div>
       </div>
     </div>
   );
