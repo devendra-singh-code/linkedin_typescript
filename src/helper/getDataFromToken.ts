@@ -2,11 +2,38 @@ import { NextRequest } from "next/server";
 import jwt from "jsonwebtoken";
 
 export async function getDataFromToken(request: NextRequest) {
+  const token =  request.cookies.get("token")?.value;
+  if (!token) {
+    return null;
+  }
+
   try {
-    const token =  request.cookies.get("token")?.value || "";
-    const decodeToken: any = jwt.verify(token, process.env.JWT_SECRET_KEY!);
-    return decodeToken.id;
+    const decoded: any =  jwt.verify(token, process.env.JWT_SECRET_KEY!);
+    return decoded.id;
   } catch (error: any) {
-    throw new Error(error.message);
+    console.error("Invalid token:", error.message);
+    return null; // Return null instead of throwing
   }
 }
+
+
+
+
+
+
+
+
+
+
+// import { NextRequest } from "next/server";
+// import jwt from "jsonwebtoken";
+
+// export async function getDataFromToken(request: NextRequest) {
+//   try {
+//     const token =  request.cookies.get("token")?.value || "";
+//     const decodeToken: any = jwt.verify(token, process.env.JWT_SECRET_KEY!);
+//     return decodeToken.id;
+//   } catch (error: any) {
+//     throw new Error(error.message);
+//   }
+// }

@@ -3,11 +3,15 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 
 export const LinkedInContext = createContext<any>(undefined);
-type Context = {
-  children: React.ReactNode,
 
+interface Props {
+  children: React.ReactNode;
+  allPost: any[];
+  singleUserPost: any[];
+ 
 }
-const LinkedInProvider =  ({ children }: Context) => {
+
+const LinkedInProvider =  ({ children, allPost, singleUserPost }: Props) => {
 const [user, setUser] = useState(null)
 const [showHeader, setShowHeader] = useState(true);
 const [userLoggedIn, setUserLoggedIn] = useState(false)
@@ -16,29 +20,21 @@ const [following, setFollowing] = useState<any>(null)
 
 const [sendRequest, setSendRequest] = useState<any>(null)
 
-const [allPost, setAllPost] = useState<any>([]);
-const [singleUserPost, setSingleUserPost] = useState<any>([])
+// const [allPost, setAllPost] = useState<any>([]);
+// const [singleUserPost, setSingleUserPost] = useState<any>([])
 
-  useEffect(() => {
-    if(!user) return 
-    const fetchAllPosts = async () => {
-
-    try {
-        const response = await axios.get("/api/getAllPosts", {
-          withCredentials: true,
-        });
-        if (response.data.success) {
-          setAllPost(response.data.data);
-          setSingleUserPost(response.data.singleUserPost)
-        }
-    } catch (error) {
-      console.log("error in fetchAllPost in context file", error)
-      setAllPost(null)
-      setSingleUserPost(null)
-    }
-    };
-    fetchAllPosts();
-  }, [user, userLoggedIn]);
+  // useEffect(() => {
+  //   const fetchAllPosts = async () => {
+  //     const response = await axios.get("/api/getAllPosts", {
+  //       withCredentials: true,
+  //     });
+  //     if (response.data.success) {
+  //       setAllPost(response.data.data);
+  //       setSingleUserPost(response.data.singleUserPost)
+  //     }
+  //   };
+  //   fetchAllPosts();
+  // }, []);
 
 useEffect(() => {
   const fetchUser  = async () => {
@@ -49,7 +45,6 @@ useEffect(() => {
       }
     } catch (error: any) {
       console.log("Error in user fetching", error)
-      setUser(null)
     }
   }
   fetchUser()
@@ -85,7 +80,7 @@ useEffect(() => {
 }, [userLoggedIn])
 
 
-  const value = {user, showHeader, setShowHeader,setUserLoggedIn, followers, following, sendRequest, allPost, setAllPost, singleUserPost};
+  const value = {user, showHeader, setShowHeader,setUserLoggedIn, followers, following, sendRequest, allPost,  singleUserPost};
 
   return (
     <LinkedInContext.Provider value={value}>

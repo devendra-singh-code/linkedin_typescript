@@ -24,13 +24,14 @@ const page = () => {
 
 
   const login = async (data: z.infer<typeof signInSchema>) => {
-    console.log("data", data);
+    // console.log("data", data);
     try {
       const response = await axios.post("/api/login", data, {
         withCredentials: true,
       });
+      // console.log(response)
       if (response.data.success) {
-        setShowHeader(true)
+        // setShowHeader(true)
         setUserLoggedIn(true)
         router.push("/dashboard");
       }

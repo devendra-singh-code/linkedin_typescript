@@ -3,6 +3,10 @@ import "./globals.css";
 import Header from "@/components/Header";
 import LinkedInProvider from "../context/linkedInContext";
 import {Toaster} from "react-hot-toast"
+import { cookies } from "next/headers";
+import jwt from 'jsonwebtoken'
+import UserModel from "@/models/User";
+import dbConnect from "@/lib/dbConnect";
 
 export const metadata: Metadata = {
   title: {
@@ -15,15 +19,42 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+const cookieStore = await cookies()
+const token = cookieStore.get("token")?.value
+
+let user
+
+if(token){
+ try {
+       const decoded: any = jwt.verify(token, process.env.JWT_SECRET_KEY!);
+       await dbConnect();
+      //  user = await UserModel.findById(decoded.id).lean();
+       const userDoc = await UserModel.findById(decoded.id).lean();
+
+    if (userDoc) {
+      // ✅ Convert ObjectId and Date to strings
+      user = {
+        ...userDoc,
+        _id: userDoc._id.toString(),
+        // createdAt: userDoc.createdAt?.toISOString?.() ?? null,
+        // updatedAt: userDoc.updatedAt?.toISOString?.() ?? null,
+      };
+    }
+     } catch (err) {
+       console.error("Invalid token", err);
+     }
+}
+
   return (
     <html lang="en">
       <body>
-        <LinkedInProvider>
+        <LinkedInProvider >
           {/* <Header /> */}
           
           <div className="md:px-10 px-2 py-1 md:py-6 w-full md:pt-[84px] pt-[80px]  h-screen overflow-y-scroll overflow-hidden my-scroll-container">

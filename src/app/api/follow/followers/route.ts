@@ -23,17 +23,16 @@ export async function GET(req: NextRequest) {
 
     const receiver = await UserModel.find({
       followers: {
-        $elemMatch: { sender: id, status: "pending" }, 
+        $elemMatch: { sender: id, status: "pending" },
       },
-    }).select("full_name profile_image")
+    }).select("full_name profile_image");
 
     // console.log("receiver1", receiver)
 
     return NextResponse.json(
-      { success: true, data,receiver, message: "Followers found" },
+      { success: true, data, receiver, message: "Followers found" },
       { status: 201 }
     );
-
   } catch (error) {
     console.error("Error in follow following page", error);
     return NextResponse.json(

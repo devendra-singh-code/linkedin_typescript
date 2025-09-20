@@ -20,10 +20,12 @@ import CommentsOnPost from "./CommentsOnPost";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Link from "next/link";
+import FullScreenPosts from "./FullScreenPosts";
 
 const Posts = ({ posts }: { posts: any }) => {
   const { user, following } = useContext(LinkedInContext)
   const [like, setLike] = useState<any>(false)
+  const [showFullScreenPost, setShowFullScreenPost] = useState(false)
   // console.log("user and following", posts._id, following[0]._id)
   // console.log("all post", posts.createdBy._id, following[0]._id);
   // console.log("all comments ", posts.comments)
@@ -38,15 +40,32 @@ const Posts = ({ posts }: { posts: any }) => {
   }, [])
   // console.log(userComments)
 
-  useEffect(() => {
-    if ((posts.createdBy._id.toString() !== following[0]?._id.toString())) {
-      setFollow(true)
-      setFollowed(true)
-    }
-  }, [])
+useEffect(() => {
+  if (!posts || !following) return;
+
+  // Extract the author id from the post
+  const authorId = posts?.createdBy?._id?.toString();
+
+  // Check if the author is in the following list
+  const isFollowing = following.some(
+    (f: any) => f._id.toString() === authorId
+  );
+
+  if (!isFollowing) {
+    setFollow(true);
+    setFollowed(true);
+  }
+}, [posts, following]);
+
+  // useEffect(() => {
+  //   if ((posts?.createdBy._id?.toString() !== following[0]?._id.toString())) {
+  //     setFollow(true)
+  //     setFollowed(true)
+  //   }
+  // }, [])
 
   useEffect(() => {
-    if (posts.createdBy._id.toString() === user._id.toString()) {
+    if (posts?.createdBy._id?.toString() === user._id.toString()) {
       setFollow(false)
     }
   }, [])
@@ -113,7 +132,9 @@ const Posts = ({ posts }: { posts: any }) => {
 
 
   return (
-    <div className="relative bg-white rounded-xl flex flex-col gap-3 border border-gray-300">
+    <>
+   {showFullScreenPost && <FullScreenPosts setShowFullScreenPost={setShowFullScreenPost} posts= {posts} />}
+    <div  className="relative bg-white rounded-xl flex flex-col gap-3 border border-gray-300">
       <div className="absolute flex items-center gap-5 right-5 top-4 cursor-pointer">
         {follow &&
           <div onClick={sendRequest} className="text-blue-700 font-semibold flex items-center gap-1 "><Plus className="w-4 h-4" /><p>Follow</p></div>
@@ -138,7 +159,7 @@ const Posts = ({ posts }: { posts: any }) => {
                 alt=""
               />
             ) : (
-              <div className="bg-white border-2 border-gray-600 rounded-full w-12 h-12 flex items-center justify-center font-semibold">{posts?.createdBy?.full_name.charAt(0)}</div>
+              <div className="bg-white border-2 border-gray-600 rounded-full w-12 h-12 flex items-center justify-center font-semibold">{posts?.createdBy?.full_name?.charAt(0)}</div>
             )}
 
             <div>
@@ -156,18 +177,22 @@ const Posts = ({ posts }: { posts: any }) => {
 
         <div>
           <p className="text-[14px]  text-gray-700 leading-4">
-            {posts.content} <span>..more</span>
+            {posts?.content} <span></span>
           </p>
         </div>
       </div>
-      <div className="w-full">
-        {posts.post_image ? (
+      <div  className="w-full ">
+        {posts?.post_image ? (
           <img
+          onClick={() => setShowFullScreenPost(true)}
             src={posts.post_image}
             className="w-full object-contain"
             alt=""
           />
         ) : null}
+        {posts?.post_video ? (
+          <video src={posts.post_video} controls className="max-h-[400px] w-full text-center"/>
+        ): null}
       </div>
       <div className="flex items-center justify-between px-4">
         <div></div>
@@ -235,6 +260,7 @@ const Posts = ({ posts }: { posts: any }) => {
       }
 
     </div>
+     </>
   );
 };
 

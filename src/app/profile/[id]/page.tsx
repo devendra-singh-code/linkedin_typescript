@@ -18,10 +18,11 @@ import { LinkedInContext } from "@/context/linkedInContext";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 
 const page = () => {
   const { id } = useParams();
-  console.log("id", id);
+  // console.log("id", id);
   const { user } = useContext(LinkedInContext);
   const [showProfileData, setShowProfileData] = useState<any>(null);
   const [loading, setLoading] = useState(false)
@@ -199,12 +200,12 @@ const page = () => {
                   Posts you have share will be displayed here.
                 </p>
               </div>
-              <div className="flex gap-3 items-center justify-center  border-t border-gray-300 pt-3 cursor-pointer">
+              <Link href={`/posts/${id}`} className="flex gap-3 items-center justify-center  border-t border-gray-300 pt-3 cursor-pointer">
                 <p className="font-semibold text-gray-500 text-sm md:text-[18px] ">
                   Show all activity{" "}
                 </p>
                 <ArrowRight className="text-gray-500" />
-              </div>
+              </Link>
             </div>
           </div>
           <div className="hidden md:block">

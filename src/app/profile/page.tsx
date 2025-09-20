@@ -17,9 +17,10 @@ import EditIntro from "@/components/EditIntro";
 import { LinkedInContext } from "@/context/linkedInContext";
 import axios from "axios";
 import toast from "react-hot-toast";
+import Link from "next/link";
 
 const page = () => {
-  const { user } = useContext(LinkedInContext)
+  const { user, singleUserPost } = useContext(LinkedInContext)
   const [image, setImage] = useState<any>(null);
   const [profilePhotoChange, setProfilePhotoChange] = useState(false)
   const [editIntro, setEditIntro] = useState(false)
@@ -211,17 +212,17 @@ const page = () => {
                 <p className="text-sm text-gray-500">Private to you</p>
               </div>
               <div>
-                <p className="font-semibold">You have not poosted yet</p>
+                <p className="font-semibold">You have {singleUserPost?.length} posted yet</p>
                 <p className="text-gray-600 text-sm">
                   Posts you have share will be displayed here.
                 </p>
               </div>
-              <div className="flex gap-3 items-center justify-center  border-t border-gray-300 pt-3 cursor-pointer">
+              <Link href={'/posts'} className="flex gap-3 items-center justify-center  border-t border-gray-300 pt-3 cursor-pointer">
                 <p className="font-semibold text-gray-500 text-sm md:text-[18px] ">
                   Show all activity{" "}
                 </p>
                 <ArrowRight className="text-gray-500" />
-              </div>
+              </Link>
             </div>
           </div>
           <div className="hidden md:block">

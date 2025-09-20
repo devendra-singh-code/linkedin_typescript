@@ -5,9 +5,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   await dbConnect();
-
+// console.log("Incoming cookies:", request.cookies.getAll()); 
   try {
     const id = await getDataFromToken(request);
+    // console.log("id", id)
     if (!id) {
       return NextResponse.json(
         { success: false, message: "User not Logged in" },

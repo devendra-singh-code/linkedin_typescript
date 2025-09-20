@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
         const author: any = await getDataFromToken(req)
         const arrayBuffer = await req.arrayBuffer();
         const buffer = Buffer.from(arrayBuffer);
-        console.log("user id ", author)
+        // console.log("user id ", author)
         if (!author) {
             return NextResponse.json({ success: false, message: "User not Logged in" }, { status: 401 })
         }
@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
 
                 if (file) {
                     const mimeType = (file.mimetype || "").toLowerCase();
-                    let postData: any = { createdBy:author, content };
+                    let postData: any = { createdBy:author, content:"" };
 
                     if (mimeType.startsWith("image/")) {
                         postData.post_image = `/uploads/${file.newFilename}`;
