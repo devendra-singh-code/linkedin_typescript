@@ -52,7 +52,7 @@ const page = () => {
         {profilePhotoChange && <ChangeProfilePhoto setProfilePhotoChange={setProfilePhotoChange} />}
         <div className="flex justify-center gap-3">
           <div className="w-full flex flex-col justify-center  gap-5">
-            <div className="bg-white rounded-xl overflow-hidden w-full">
+            <div className="bg-white rounded-xl overflow-hidden w-full dark:bg-[#2b2b2b] dark:text-white">
               <div className="bg-gray-400 h-56 relative">
                 {user?.cover_image ? (
                   <img
@@ -107,20 +107,20 @@ const page = () => {
               </div>
               <div className="relative p-5 mt-12 flex flex-col gap-4">
                 <div onClick={() => setEditIntro(true)} className="absolute right-6 -top-5">
-                  <Pen className="text-gray-600 text-xl" />
+                  <Pen className="text-gray-600 text-xl dark:text-white" />
                 </div>
                 <div>
                   <div className="flex gap-2 items-start">
                     <p className="text-2xl font-semibold">{user?.full_name}</p>
-                    <div className="border-2 border-dotted border-blue-700 px-4 rounded-full text-blue-700 py-[2px] font-semibold text-[12px] md:text-sm cursor-pointer flex items-center justify-center gap-1">
+                    <div className="border-2 border-dotted border-blue-700 px-4 rounded-full text-blue-700 py-[2px] font-semibold text-[12px] md:text-sm cursor-pointer flex items-center justify-center gap-1 dark:text-blue-400 dark:border-blue-400">
                       <Verified className="h-4 w-4 md:h-5 md:w-5" />
                       <p>Add verification badge</p>
                     </div>
                   </div>
-                  <p className="text-gray-700 font-semibold text-[14px] max-w-[450px] leading-tight w-full">Frontend Developer | React.js | JavaScript | HTML | UI/UX Enthusiast | Scalable Web Apps Expert</p>
-                  <p className="text-gray-500 text-sm">
+                  <p className="text-gray-700 dark:text-white font-semibold text-[14px] max-w-[450px] leading-tight w-full">Frontend Developer | React.js | JavaScript | HTML | UI/UX Enthusiast | Scalable Web Apps Expert</p>
+                  <p className="text-gray-500 text-sm dark:text-white">
                     Bhopal, Madhya Pradesh, India -{" "}
-                    <span className="text-blue-700 font-semibold">
+                    <span className="text-blue-700 font-semibold dark:text-blue-400">
                       Contact info
                     </span>
                   </p>
@@ -129,24 +129,24 @@ const page = () => {
                   <button className="px-4 py-1 bg-blue-600 text-white rounded-full">
                     Open to
                   </button>
-                  <button className="border border-blue-700 text-blue-700 rounded-full px-4 py-1 font-semibold">
+                  <button className="border border-blue-700 text-blue-700 dark:text-blue-400 dark:border-blue-400 rounded-full px-4 py-1 font-semibold">
                     Add profile section
                   </button>
-                  <button className="border border-blue-700 text-blue-700 rounded-full px-4 py-1 font-semibold">
+                  <button className="border border-blue-700 text-blue-700 dark:text-blue-400 dark:border-blue-400 rounded-full px-4 py-1 font-semibold">
                     Enhance profile
                   </button>
-                  <button className="border border-black rounded-full px-4 py-1 font-semibold">
+                  <button className="border border-black dark:border-white rounded-full px-4 py-1 font-semibold">
                     Resources
                   </button>
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-xl md:p-6 p-4 flex flex-col gap-4">
+            <div className="bg-white rounded-xl md:p-6 p-4 flex flex-col gap-4 dark:bg-[#2b2b2b] dark:text-white">
               <div className="">
                 <p className="font-semibold text-xl">Suggested for you</p>
-                <p className="text-sm text-gray-500">Private to you</p>
+                <p className="text-sm text-gray-500 dark:text-white">Private to you</p>
               </div>
-              <div className="p-3 border border-gray-200 rounded-lg  flex flex-col gap-3 items-start">
+              <div className="p-3 border border-gray-200 dark:border-gray-700 rounded-lg  flex flex-col gap-3 items-start">
                 <div className="flex gap-3 items-center">
                   <Image className="w-16" src={list} alt="" />
                   <p className="font-semibold md:text-base text-sm">
@@ -154,7 +154,7 @@ const page = () => {
                     experience
                   </p>
                 </div>
-                <p className="text-gray-600 md:text-sm text-[12px]">
+                <p className="text-gray-600 md:text-sm text-[12px] dark:text-white">
                   Member who include a summary recieve up to 3.9 times as many
                   profile views
                 </p>
@@ -163,10 +163,10 @@ const page = () => {
                 </button>
               </div>
             </div>
-            <div className="bg-white rounded-xl md:p-6 p-4 flex flex-col gap-4 pb-3">
+            <div className="bg-white rounded-xl md:p-6 p-4 flex flex-col gap-4 pb-3 dark:bg-[#2b2b2b] dark:text-white">
               <div className="">
                 <p className="font-semibold text-xl">Suggested for you</p>
-                <p className="text-sm text-gray-500">Private to you</p>
+                <p className="text-sm text-gray-500 dark:text-white">Private to you</p>
               </div>
               <div className="flex md:gap-10 gap-2">
                 <div className="w-[300px] flex justify-center md:gap-5 gap-3">
@@ -175,7 +175,7 @@ const page = () => {
                   </div>
                   <div>
                     <p className="font-semibold md:text-xl text-base">0 profile views</p>
-                    <p className="font-semibold text-gray-600 md:text-base text-sm">
+                    <p className="font-semibold text-gray-600 dark:text-white md:text-base text-sm">
                       Update your prfile to attarct viewers
                     </p>
                   </div>
@@ -186,10 +186,10 @@ const page = () => {
                   </div>
                   <div>
                     <p className="font-semibold md:text-xl text-base">0 post impressions</p>
-                    <p className="font-semibold text-gray-600 md:text-base text-sm">
+                    <p className="font-semibold text-gray-600 dark:text-white md:text-base text-sm">
                       Start a post to increase engagement.
                     </p>
-                    <p className="font-semibold text-gray-400 md:text-base text-sm">Past 7 days</p>
+                    <p className="font-semibold text-gray-400 dark:text-white md:text-base text-sm">Past 7 days</p>
                   </div>
                 </div>
               </div>
@@ -200,49 +200,50 @@ const page = () => {
                 <ArrowRight className="text-gray-500" />
               </div>
             </div>
-            <div className="relative bg-white rounded-xl p-6 flex flex-col gap-4 pb-4">
+            <div className="relative bg-white dark:bg-[#2b2b2b] dark:text-white rounded-xl p-6 flex flex-col gap-4 pb-4">
               <div className="absolute right-8 top-6 flex items-center gap-5">
-                <button className="border-2 border-blue-700 rounded-full px-4 py-1 md:text-base text-sm font-semibold text-blue-700">
+                <button className="border-2 border-blue-700 dark:border-blue-400 dark:text-blue-400 rounded-full px-4 py-1 md:text-base text-sm font-semibold text-blue-700">
                   Create a post
                 </button>
-                <Pen className="text-gray-600 md:h-5 md:w-5 h-4 w-4" />
+                <Pen className="text-gray-600 dark:text-white md:h-5 md:w-5 h-4 w-4" />
               </div>
               <div className="">
                 <p className="font-semibold text-xl">Suggested for you</p>
-                <p className="text-sm text-gray-500">Private to you</p>
+                <p className="text-sm text-gray-500 dark:text-white">Private to you</p>
               </div>
               <div>
                 <p className="font-semibold">You have {singleUserPost?.length} posted yet</p>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-600 text-sm dark:text-white">
                   Posts you have share will be displayed here.
                 </p>
               </div>
               <Link href={'/posts'} className="flex gap-3 items-center justify-center  border-t border-gray-300 pt-3 cursor-pointer">
-                <p className="font-semibold text-gray-500 text-sm md:text-[18px] ">
+                <p className="font-semibold text-gray-500 dark:text-white text-sm md:text-[18px] ">
                   Show all activity{" "}
                 </p>
-                <ArrowRight className="text-gray-500" />
+                <ArrowRight className="text-gray-500 dark:text-white" />
               </Link>
             </div>
           </div>
+
           <div className="hidden md:block">
 
 
-            <div className="w-[400px] pt-6 flex flex-col gap-6 ">
-              <div className="bg-white p-4 rounded-xl flex flex-col gap-5">
+            <div className="w-[400px] pt-6 flex flex-col gap-6  ">
+              <div className="bg-white p-4 rounded-xl flex flex-col gap-5 dark:bg-[#2b2b2b] dark:text-white">
                 <div className=" relative border-b border-gray-400 pb-5">
                   <div className="absolute right-2">
-                    <Pen className="text-gray-600" />
+                    <Pen className="text-gray-600 dark:text-white" />
                   </div>
                   <p className="font-semibold text-[18px]">Profile language</p>
-                  <p className="text-gray-600 text-sm"> English</p>
+                  <p className="text-gray-600 text-sm dark:text-white"> English</p>
                 </div>
                 <div className="relative">
                   <div className="absolute right-2">
-                    <Pen className="text-gray-600" />
+                    <Pen className="text-gray-600 dark:text-white" />
                   </div>
                   <p className="font-semibold text-[18px]">Profile profile & URL</p>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 text-sm dark:text-white">
                     www.linkedin.com/devendrasingh123
                   </p>
                 </div>

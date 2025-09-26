@@ -81,14 +81,14 @@ export default async function Dashboard({ children }: { children: React.ReactNod
   return (
     <>
 
-      <div className="w-full">
+      <div className="w-full dark:bg-[#202020]">
         <Header />
         <div className="w-full flex justify-between">
-          <div className="md:w-[300px] hidden md:block w-full ">
+          <div className="md:w-[300px] hidden md:block w-full dark:bg-[#202020] ">
             <Left user={user} />
           </div>
           <div className="w-full  max-w-[600px] md:px-10 ">{children}</div>
-          <div className=" w-[300px] min-w-[300px] hidden md:block ">
+          <div className=" w-[300px] min-w-[300px] hidden md:block  ">
             <Right />
           </div>
         </div>

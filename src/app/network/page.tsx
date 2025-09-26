@@ -27,21 +27,21 @@ const page = () => {
   
   return (
     <div className="flex flex-col gap-3">
-      <div className=" bg-white rounded-lg flex flex-col gap-3 p-3 border border-gray-300">
+      <div className=" bg-white dark:bg-[#2b2b2b] dark:text-white rounded-lg flex flex-col gap-3 p-3 border border-gray-300">
         <div className="">
-          <p className=" text-gray-800 ">Network overview</p>
+          <p className=" text-gray-800 dark:text-white">Network overview</p>
         </div>
         <div className="flex justify-between items-center">
           <div className="flex gap-1 flex-col cursor-pointer">
-            <p className="text-3xl text-gray-700 font-semibold">0</p>
+            <p className="text-3xl text-gray-700 dark:text-white font-semibold">0</p>
             <p className="text-[12px] ">Invites sent</p>
           </div>
           <Link href={'/connections'} className="flex gap-1 flex-col cursor-pointer">
-            <p className="text-3xl font-semibold text-gray-700">10</p>
+            <p className="text-3xl font-semibold text-gray-700 dark:text-white">10</p>
             <p className="text-[12px] ">Connections</p>
           </Link>
           <Link href={'/followers'} className="flex gap-1 flex-col cursor-pointer">
-            <p className="text-3xl font-semibold text-gray-700">{following?.length}</p>
+            <p className="text-3xl font-semibold text-gray-700 dark:text-white">{following?.length}</p>
             <p className="text-[12px] ">Following</p>
           </Link>
         </div>
@@ -51,7 +51,7 @@ const page = () => {
             showMore === true && "hidden"
           }`}
         >
-          <p className="text-gray-700 text-[14px]">show more </p>
+          <p className="text-gray-700 dark:text-white text-[14px]">show more </p>
           <ArrowDown className="h-4 w-4" />
         </div>
         {showMore && (
@@ -59,7 +59,7 @@ const page = () => {
             {optionsOne.map((option) => (
               <div
                 key={option}
-                className="flex items-center gap-4 text-gray-600 text-[12px] font-semibold hover:underline cursor-pointer"
+                className="flex items-center gap-4 text-gray-600 dark:text-white text-[12px] font-semibold hover:underline cursor-pointer"
               >
                 <p className="text-base">{option}</p>
               </div>
@@ -73,7 +73,7 @@ const page = () => {
             showMore === false && "hidden"
           }`}
         >
-          <p className="text-gray-700 text-[14px]">show less </p>
+          <p className="text-gray-700 dark:text-white text-[14px]">show less </p>
           <ArrowUp className="h-4 w-4" />
         </div>
       </div>
@@ -83,7 +83,7 @@ const page = () => {
         {optionsTwo.map((option) => (
           <p
           key={option}
-          className="text-[12px] font-semibold text-gray-700 cursor-pointer hover:underline hover:text-gray-900"
+          className="text-[12px] font-semibold text-gray-700 dark:text-white cursor-pointer hover:underline hover:text-gray-900"
           >
             {option}
           </p>
@@ -95,7 +95,7 @@ const page = () => {
 
       <div className="px-4 rounded-xl flex items-center gap-2">
         <Image className="w-20" src={assets.logo1} alt="" />
-        <p className="text-[12px] font-semibold text-gray-600">
+        <p className="text-[12px] font-semibold text-gray-600 dark:text-white">
           LinkedIn Corporation @ 2024
         </p>
 </div>

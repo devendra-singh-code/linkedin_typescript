@@ -16,6 +16,7 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { LinkedInContext } from "@/context/linkedInContext";
+import SearchBar from "./SearchBar";
 
 const Header = () => {
   const { user } = useContext(LinkedInContext)
@@ -24,6 +25,7 @@ const Header = () => {
   // const [showHeader, setShowHeader] = useState(false);
   const [option, setOption] = useState(false);
   const [sidebarMenu, setSidebarMenu] = useState(false);
+  const [searchbar, setSearchbar] = useState(false)
 
   const navbarMenu = [
     { image: Home, title: "Home", path: "dashboard" },
@@ -57,14 +59,21 @@ const Header = () => {
     }
   };
 
+  const searchBarClicked = () => {
+    setSearchbar(true)
+  }
+
   return (
-    <div className="w-full fixed top-0 left-0 z-100 bg-white  pb-5 pt-2">
+    <>
+      {searchbar && <SearchBar setSearchbar={setSearchbar} />}
+   
+    <div className="w-full fixed top-0 left-0 z-100 bg-white dark:bg-[#202020]  pb-5 pt-2">
       <div className="w-full px-4 flex items-center justify-between">
         <div className="flex items-center gap-2 mr-2">
           <Link href={"/dashboard"}>
             <Image src={assets.minilogo} alt="" className="w-[35px]" />
           </Link>
-          <div className="flex w-[300px] items-center border border-gray-400 gap-3 px-3 py-1.5 rounded-full ">
+          <div onClick={searchBarClicked} className="flex w-[300px] items-center border border-gray-400 gap-3 px-3 py-1.5 rounded-full ">
             <SearchCode className="w-4 h-4 text-gray-400" />
             <input
               type="text"
@@ -82,8 +91,8 @@ const Header = () => {
                   href={`/${menu.path}`}
                   key={menu.title}
                   className={`flex items-center flex-col py-1 px-5 border-b-2 ${menu.path === pathenameValue
-                      ? "border-gray-500 text-black font-semibold"
-                      : "border-white text-slate-600"
+                    ? "border-gray-500 text-black dark:text-white font-semibold"
+                    : "border-white dark:border-[#202020] text-slate-600 dark:text-gray-400"
                     } border-gray-500  cursor-pointer`}
                 >
                   <menu.image
@@ -101,12 +110,12 @@ const Header = () => {
             <div
               onClick={() => setOption((prev) => !prev)}
               className={`relative group flex items-center flex-col py-1 px-5 border-b-2  ${pathenameValue === "profile"
-                  ? "border-gray-500 text-black font-semibold"
-                  : "border-white text-slate-600"
+                ? "border-gray-500 text-black font-semibold"
+                : "border-white dark:border-[#202020] text-slate-600"
                 } border-gray-500  cursor-pointer`}
             >
               {user?.profile_image ? (
-                <img src={user.profile_image} className="w-6 h-6 object-cover rounded-full overflow-hidden" alt="" />
+                <img src={user.profile_image} className="w-5 h-5 object-cover rounded-full overflow-hidden" alt="" />
               ) : (
                 <div className="h-6 w-6 text-sm rounded-full border border-gray-400 overflow-hidden flex items-center justify-center font-semibold">{user?.full_name.charAt(0)}</div>
               )}
@@ -143,14 +152,14 @@ const Header = () => {
           </div>
 
           {option && (
-            <div className="absolute top-16 right-2 z-20 bg-white p-3 border border-gray-400 rounded w-[300px] flex flex-col gap-3">
+            <div className="absolute top-16 right-2 z-20 bg-white dark:text-white dark:bg-[#2b2b2b] p-3 border border-gray-400 rounded w-[300px] flex flex-col gap-3">
               <div className="flex items-center gap-4">
                 <div className="flex items-center justify-center h-12 w-12 bg-green-600 rounded-full text-white">
                   <p>D</p>
                 </div>
                 <div>
                   <p className="font-semibold">Devendra Singh</p>
-                  <p className="text-sm text-gray-600">Web Developer</p>
+                  <p className="text-sm text-gray-600  dark:text-white">Web Developer</p>
                 </div>
               </div>
               <div
@@ -158,9 +167,9 @@ const Header = () => {
                   setOption(false);
                   route.push("/profile");
                 }}
-                className="border-2 border-blue-400 hover:border-blue-800 rounded-3xl w-full cursor-pointer"
+                className="border-2 border-blue-400 hover:border-blue-800  rounded-3xl w-full cursor-pointer dark:text-blue-300"
               >
-                <p className="w-full text-center text-blue-600 hover:text-blue-900 py-1 font-semibold text-[15px]">
+                <p className="w-full text-center text-blue-600  hover:text-blue-900 dark:hover:text-blue-300 py-1 font-semibold text-[15px]">
                   View profile
                 </p>
               </div>
@@ -169,28 +178,28 @@ const Header = () => {
                 <p className="text-sm hover:underline">
                   Try 1 month of Premium fo $0
                 </p>
-                <p className="text-sm text-gray-600 hover:underline">
+                <p className="text-sm text-gray-600 dark:text-white hover:underline">
                   Settings & Privacy
                 </p>
-                <p className="text-sm text-gray-600 hover:underline">Help</p>
-                <p className="text-sm text-gray-600 hover:underline">
+                <p className="text-sm text-gray-600 dark:text-white hover:underline">Help</p>
+                <p className="text-sm text-gray-600 dark:text-white hover:underline">
                   {" "}
                   Language
                 </p>
               </div>
-              <div className=" border-t-2 border-b-2 py-2 flex flex-col gap-1">
+              <div className="  border-b-2 py-2 flex flex-col gap-1">
                 <p className="font-semibold">Manage</p>
-                <p className="text-sm text-gray-600 hover:underline">
+                <p className="text-sm text-gray-600 dark:text-white hover:underline">
                   Posts & Activity
                 </p>
-                <p className="text-sm text-gray-600 hover:underline">
+                <p className="text-sm text-gray-600 dark:text-white hover:underline">
                   Job Posting Account
                 </p>
               </div>
               <div>
                 <p
                   onClick={handleLogout}
-                  className="text-sm text-gray-600 cursor-pointer hover:underline"
+                  className="text-sm text-gray-600 dark:text-white cursor-pointer hover:underline"
                 >
                   Sign Out
                 </p>
@@ -210,8 +219,8 @@ const Header = () => {
                       href={`/${menu.path}`}
                       key={menu.title}
                       className={`px-4 py-2 flex  w-full items-center justify-center gap-2 rounded-xl  ${menu.path === pathenameValue
-                          ? "border-gray-400  bg-gray-800 text-white font-semibold"
-                          : "border-white text-slate-200"
+                        ? "border-gray-400  bg-gray-800 text-white font-semibold"
+                        : "border-white text-slate-200"
                         } border-white  cursor-pointer`}
                     >
                       {/* <menu.image className="w-4 h-4  " /> */}
@@ -233,6 +242,7 @@ const Header = () => {
         </div>
       </div>
     </div>
+     </>
   );
 };
 

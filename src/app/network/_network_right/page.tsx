@@ -41,7 +41,7 @@ const Network_Right = () => {
         <p className='border-b-2 border-black px-5 py-2 font-semibold'>Grow</p>
         <p className=' px-5 py-2 font-semibold'>Catch up</p>
       </div> */}
-      <div className='bg-white rounded-md'>
+      <div className='bg-white rounded-md dark:bg-[#2b2b2b] dark:text-white'>
         <div className='p-3 flex justify-between items-center border border-gray-300'>
           <p className='font-semibold text-base'>Invites received</p>
           <Link href={`/invitation`} className='font-semibold text-gray-500 cursor-pointer text-[15px]'>Show all</Link>
@@ -57,7 +57,7 @@ const Network_Right = () => {
           </div>
         </div> */}
       </div>
-      <div className='bg-white p-4 flex flex-col gap-5 rounded-lg border border-gray-300'>
+      <div className='bg-white dark:text-white dark:bg-[#2b2b2b] p-4 flex flex-col gap-5 rounded-lg border border-gray-300'>
         <div className='flex items-center justify-between'>
           <p className='md:text-base text-[12px]'>Suggested people for you based on your recent activity</p>
          

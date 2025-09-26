@@ -98,9 +98,9 @@ const page = () => {
       {/* {addPost && <AddPost setAddPost={setAddPost} />} */}
       <div className="flex flex-col gap-3">
 
-        <div className="flex flex-col gap-3">
-          <p className="text-2xl font-semibold text-gray-700">All Activity</p>
-          <div className="flex gap-2">
+        <div className="flex flex-col gap-3 dark:text-white">
+          <p className="text-2xl font-semibold text-gray-700 dark:text-white">All Activity</p>
+          <div className="flex gap-2 dark:text-white">
             <p className="px-3 py-1 rounded-full text-sm font-semibold border border-gray-400">Posts</p>
             <p className="px-3 py-1 rounded-full text-sm font-semibold border border-gray-400">Comments</p>
             <p className="px-3 py-1 rounded-full text-sm font-semibold border border-gray-400">Images</p>

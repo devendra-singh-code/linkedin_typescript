@@ -61,19 +61,19 @@ const page = () => {
       {/* {addPost && <AddPost setAddPost={setAddPost} />} */}
       <div className="flex flex-col gap-3">
         {showLooking && (
-          <div className=" relative px-4 py-4 bg-white rounded-xl flex flex-col gap-3 justify-center   ">
+          <div className=" relative px-4 py-4 bg-white rounded-xl flex flex-col gap-3 justify-center dark:bg-[#2b2b2b] dark:text-white  ">
             <Image className="w-[160px] m-auto" src={assets.one} alt="" />
             <p className="text-xl font-semibold text-center">
               Hi Devendra, are you looking for a job right now?
             </p>
-            <p className="text-gray-700 text-center">
+            <p className="text-gray-700 text-center dark:text-white">
               Your response is only visible to you.
             </p>
             <div className="flex gap-2">
-              <button className=" p-[6px] text-blue-700 font-semibold border-2 border-blue-300 hover:border-blue-500 hover:border-2 hover:bg-blue-50 rounded-full w-full cursor-pointer">
+              <button className=" p-[6px] text-blue-700 dark:text-blue-400 font-semibold border-2 border-blue-300 hover:border-blue-500 hover:border-2 hover:bg-blue-50 rounded-full w-full cursor-pointer dark:hover:bg-blue-500 dark:hover:text-white">
                 Yes
               </button>
-              <button className=" border-2 text-blue-700 font-semibold border-blue-300 hover:border-blue-500 hover:border-2 hover:bg-blue-50 rounded-full w-full cursor-pointer">
+              <button className=" border-2 text-blue-700 dark:text-blue-400  font-semibold border-blue-300 hover:border-blue-500 hover:border-2 hover:bg-blue-50 rounded-full w-full cursor-pointer dark:hover:bg-blue-500 dark:hover:text-white">
                 No, but I am open
               </button>
             </div>
@@ -81,7 +81,7 @@ const page = () => {
               onClick={() => setShowLooking(false)}
               className="absolute right-6 top-3"
             >
-              <p className="font-semibold text-xl text-gray-600 cursor-pointer">
+              <p className="font-semibold text-xl text-gray-600 cursor-pointer dark:text-white">
                 x
               </p>
             </div>
@@ -89,7 +89,7 @@ const page = () => {
         )}
 
         {/* Add a post  */}
-        <div className="px-4 py-4 bg-white rounded-xl flex flex-col gap-3 border border-gray-300">
+        <div className="px-4 py-4  rounded-xl flex flex-col gap-3 border border-gray-300">
           <div className="flex gap-2 justify-center">
             <div className="  md:h-12 md:w-14 h-10 w-12 flex items-center justify-center  bg-green-600 rounded-full border-2 border-white overflow-hidden">
               {user?.profile_image ? (
@@ -106,7 +106,7 @@ const page = () => {
             </div>
             <div
 
-              className="border border-blue-700 hover:bg-gray-100 rounded-full w-full flex items-center pl-6 cursor-pointer"
+              className="border border-blue-700 hover:bg-gray-100 dark:hover:bg-gray-900 rounded-full w-full flex items-center pl-6 cursor-pointer dark:hover:text-white"
             >
               <p onClick={() => setAddPost(true)} className="text-gray-600 text-[12px] md:text-[14px] font-semibold  ">
                 Start a post, try writing with AI
@@ -114,14 +114,14 @@ const page = () => {
 
 
               {addPost &&
-                <div className=" fixed z-110 top-0 left-0 bottom-0  w-full h-screen bg-black/80  flex items-center justify-center p-2">
-                  <div className="relative bg-white h-[80vh] p-5 rounded-2xl md:w-[60%] w-full flex flex-col justify-between gap-5">
+                <div className=" fixed z-110 top-0 left-0 bottom-0  w-full h-screen bg-black/80  flex items-center justify-center p-2 ">
+                  <div className="relative bg-white h-[80vh] p-5 rounded-2xl md:w-[60%] w-full flex flex-col justify-between gap-5 dark:bg-[#2b2b2b]">
                     <div>
                       <div
                         onClick={() => setAddPost((prev: any) => !prev)}
                         className="absolute right-6 top-4 cursor-pointer"
                       >
-                        <X className="font-semibold text-2xl" />
+                        <X className="font-semibold text-2xl dark:text-white" />
                       </div>
                       <div className="flex items-center gap-5">
                         <div className="bg-green-600 rounded-full w-16 h-16 flex items-center justify-center overflow-hidden">
@@ -134,13 +134,13 @@ const page = () => {
                         </div>
                         <div className="flex flex-col ">
                           <div className="flex items-center gap-2">
-                            <p className="text-xl font-semibold text-gray-700">
+                            <p className="text-xl font-semibold text-gray-700 dark:text-white">
                               {" "}
                               {user?.full_name}
                             </p>
                             <ArrowBigDownDash className="w-4 h-4" />
                           </div>
-                          <p className="text-sm">Post to Anyone</p>
+                          <p className="text-sm dark:text-white">Post to Anyone</p>
                         </div>
                       </div>
                       <div className="w-full  mt-5  rounded-lg">
@@ -189,9 +189,9 @@ const page = () => {
                       )}
 
                       <div className="flex  gap-10 items-center">
-                        <Youtube className="h-5 w-5 text-gray-500 cursor-pointer" />
+                        <Youtube className="h-5 w-5 text-gray-500 cursor-pointer dark:text-white" />
                         <label htmlFor="image">
-                          <ImageDownIcon className="h-5 w-5 text-gray-500 cursor-pointer" />
+                          <ImageDownIcon className="h-5 w-5 text-gray-500 cursor-pointer dark:text-white" />
                           <input
                             id="image"
                             type="file"
@@ -200,11 +200,11 @@ const page = () => {
                             onChange={(e: any) => setImage(e.target.files[0])}
                           />
                         </label>
-                        <Calendar1 className="h-5 w-5 text-gray-500 cursor-pointer" />
-                        <Plus className="h-5 w-5 text-gray-500 cursor-pointer" />
+                        <Calendar1 className="h-5 w-5 text-gray-500 cursor-pointer dark:text-white" />
+                        <Plus className="h-5 w-5 text-gray-500 cursor-pointer dark:text-white" />
                       </div>
                       <div className="flex w-full items-center justify-end gap-3">
-                        <Clock className="cursor-pointer h-5 w-5" />
+                        <Clock className="cursor-pointer h-5 w-5 dark:text-white" />
                         <button onClick={handlePost} className="px-5 py-1.5 rounded-sm hover:bg-blue-800 text-base text-gray-200 font-semibold cursor-pointer bg-blue-600">
                           Post 
                         </button>
@@ -217,18 +217,18 @@ const page = () => {
 
             </div>
           </div>
-          <div className="flex justify-between px-8 py-2">
+          <div className="flex justify-between px-8 py-2 ">
             <div className="flex items-center gap-1 cursor-pointer">
               <ImageDown className="md:h-5 md:w-5 h-4 w-4 text-blue-700" />
-              <p className="text-sm font-semibold text-gray-700">Photo</p>
+              <p className="text-sm font-semibold text-gray-700 dark:text-white">Photo</p>
             </div>
             <div className="flex items-center gap-1 cursor-pointer">
               <Video className="h-5 w-5 text-blue-700" />
-              <p className="text-sm font-semibold text-gray-700">Video</p>
+              <p className="text-sm font-semibold text-gray-700 dark:text-white">Video</p>
             </div>
             <div className="flex items-center gap-1 cursor-pointer">
               <NotebookPen className="md:h-5 md:w-5 h-4 w-4 text-blue-700" />
-              <p className="text-sm font-semibold text-gray-700">
+              <p className="text-sm dark:text-white font-semibold text-gray-700">
                 Write articles
               </p>
             </div>

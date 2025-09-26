@@ -23,28 +23,28 @@ const CommentsOnPost = ({ comment, index }: { comment: any, index: any }) => {
       <div className="flex-1">
         <div className="flex items-center justify-between">
           <div className="flex flex-col leading-tight">
-            <p className="font-semibold text-gray-900 text-[14px]">
+            <p className="font-semibold text-gray-900 dark:text-white text-[14px]">
               {comment?.createdBy?.full_name}
             </p>
-            <p className="text-[11px] text-gray-500">9,726,993 followers</p>
+            <p className="text-[11px] text-gray-500 dark:text-white">9,726,993 followers</p>
           </div>
 
 
           <div className="flex items-center gap-3">
-            <p className="text-gray-600 text-[12px]">{moment(comment.createdAt).fromNow()}</p>
-            <Ellipsis className="w-4 h-4 text-gray-600 cursor-pointer" />
+            <p className="text-gray-600 dark:text-white text-[12px]">{moment(comment.createdAt).fromNow()}</p>
+            <Ellipsis className="w-4 h-4 text-gray-600 dark:text-white cursor-pointer" />
           </div>
         </div>
 
 
         {/* Post Content */}
-        <p className="mt-2 text-sm leading-tight text-gray-800">
+        <p className="mt-2 text-sm leading-tight font-semibold text-gray-800 dark:text-white">
           {comment.comments}
         </p>
         <div className='flex gap-2 text-sm text-gray-500 mt-1'>
-          <p className='cursor-pointer hover:text-gray-800'>like</p>
+          <p className='cursor-pointer hover:text-gray-800 dark:text-white'>like</p>
           <p>|</p>
-          <p className='cursor-pointer hover:text-gray-800'>reply</p>
+          <p className='cursor-pointer hover:text-gray-800 dark:text-white'>reply</p>
         </div>
       </div>
     </div>

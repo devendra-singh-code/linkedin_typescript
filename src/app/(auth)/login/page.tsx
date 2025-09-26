@@ -49,18 +49,18 @@ const page = () => {
         <Image className="w-full" src={logo} alt="" />
       </div>
       <div className="flex flex-col items-center md:gap-10 gap-5 ">
-        <p className="md:text-2xl text-xl text-center text-gray-900">
+        <p className="md:text-2xl text-xl text-center text-gray-900 dark:text-white">
           Make the most of your professional life
         </p>
         <div>
-          <div className="w-[340px] flex flex-col gap-4 bg-white rounded-lg px-3 py-5">
+          <div className="w-[340px] flex flex-col gap-4 bg-white dark:bg-[#2b2b2b] rounded-lg px-3 py-5">
             <form onSubmit={handleSubmit(login)}>
               <div className="w-full flex flex-col gap-1">
-                <label className="text-sm text-gray-600" htmlFor="email">
+                <label className="text-sm text-gray-600 dark:text-white" htmlFor="email">
                   Email or phone number
                 </label>
                 <input
-                  className="border-2 border-gray-500 p-1"
+                  className="border-2 border-gray-500 p-1 dark:border-white dark:outline-none"
                   type="email"
                   id="email"
                   {...register("identifier", {
@@ -69,11 +69,11 @@ const page = () => {
                 />
               </div>
               <div className="w-full flex flex-col gap-1">
-                <label className="text-sm text-gray-600" htmlFor="password">
+                <label className="text-sm text-gray-600 dark:text-white" htmlFor="password">
                   Password (8+ character)
                 </label>
                 <input
-                  className="border-2 border-gray-500 p-1"
+                  className="border-2 border-gray-500 p-1 dark:border-white dark:outline-none"
                   type="password"
                   id="password"
                   {...register("password", {
@@ -81,14 +81,14 @@ const page = () => {
                   })}
                 />
               </div>
-              <p className="text-[12px] py-2  text-gray-900">
+              <p className="text-[12px] py-2  text-gray-900 dark:text-white">
                 By clicking Agree & Join or Continue, you agree to the LinkedIn{" "}
-                <span className="text-blue-900 cursor-pointer">
+                <span className="text-blue-900 cursor-pointer dark:text-blue-400">
                   {" "}
                   User Agreement, Privacy Policy,
                 </span>{" "}
                 and{" "}
-                <span className="text-blue-900 cursor-pointer">
+                <span className="text-blue-900 cursor-pointer dark:text-blue-400">
                   Cookie Policy.
                 </span>
               </p>
@@ -101,27 +101,27 @@ const page = () => {
             </form>
             <div className="relative flex flex-col items-center py-1 justify-center">
               <hr className="absolute top-[21x] w-full  bg-gray-600 rounded-full" />
-              <p className="z-10 bg-white px-3">or</p>
+              <p className="z-10 bg-white px-3 dark:bg-[#2b2b2b] dark:text-white">or</p>
             </div>
-            <button className="w-full border border-black p-1.5 rounded-full text-[15px] cursor-pointer">
+            <button className="w-full border border-black p-1.5 rounded-full text-[15px] cursor-pointer dark:border-white dark:text-white">
               Continue with Google
             </button>
-            <button className="w-full border border-black p-1.5 rounded-full text-[15px]  cursor-pointer font-semibold">
+            <button className="w-full border border-black p-1.5 rounded-full text-[15px]  cursor-pointer font-semibold dark:border-white dark:text-white">
               Continue with Microsoft
             </button>
-            <p className="text-center text-[15px] ">
+            <p className="text-center text-[15px] dark:text-white">
               New to LinkedIn?{" "}
               <span
                 onClick={() => router.push("/register")}
-                className="text-blue-900 cursor-pointer"
+                className="text-blue-900 cursor-pointer dark:text-blue-400"
               >
                 Join now
               </span>
             </p>
           </div>
-          <p className="text-center text-[15px] py-3">
+          <p className="text-center text-[15px] py-3 dark:text-white">
             Looking to create a page for a business?{" "}
-            <span className="text-blue-900">Get help</span>
+            <span className="text-blue-900 dark:text-blue-400">Get help</span>
           </p>
         </div>
       </div>

@@ -6,15 +6,15 @@ const page = () => {
     <>
    
       
-     <div className="bg-white rounded-xl overflow-hidden">
+     <div className="bg-white dark:bg-[#2b2b2b] dark:text-white rounded-xl overflow-hidden">
       <div>
         <div className="flex items-center justify-between py-2 px-4">
           <div className="flex items-center gap-4">
             <p className="font-semibold">Message</p>
-            <div className="flex items-center gap-3 bg-blue-100 px-2 py-1 rounded-md">
-              <ScanSearch className='w-4 h-4' />
+            <div className="flex items-center gap-3 bg-blue-100 dark:bg-white px-2 py-1 rounded-md">
+              <ScanSearch className='w-4 h-4 dark:text-black' />
               <input
-                className="bg-transparent outline-none text-[14px] border-none placeholder:text-gray-600 placeholder:text-sm"
+                className="bg-transparent  outline-none text-[14px] border-none placeholder:text-gray-600 placeholder:text-sm"
                 type="text"
                 placeholder="Search"
               />
@@ -36,22 +36,22 @@ const page = () => {
             </button>
          
           </div>
-          <button className="px-5 py-1 border border-gray-600 text-gray-600 rounded-full font-semibold">
+          <button className="px-5 py-1 border border-gray-600 text-gray-600 dark:border-gray-100 dark:text-white rounded-full font-semibold">
             Unread
           </button>
-          <button className="px-5 py-1 border border-gray-600 text-gray-600 rounded-full font-semibold">
+          <button className="px-5 py-1 border border-gray-600 text-gray-600 dark:border-gray-100 dark:text-white rounded-full font-semibold">
             My Connections
           </button>
-          <button className="px-5 py-1 border border-gray-600 text-gray-600 rounded-full font-semibold">
+          <button className="px-5 py-1 border border-gray-600 text-gray-600 dark:border-gray-100 dark:text-white rounded-full font-semibold">
             InMail
           </button>
-          <button className="px-5 py-1 border border-gray-600 text-gray-600 rounded-full font-semibold">
+          <button className="px-5 py-1 border border-gray-600 text-gray-600 dark:border-gray-100 dark:text-white rounded-full font-semibold">
             Starred
           </button>
         </div>
         <div className="flex">
           <div className="w-[470px]">
-            <div className="border-l-[3px] border-green-700 bg-gray-200 cursor-pointer ">
+            <div className="border-l-[3px] border-green-700 bg-gray-200 dark:bg-[#2b2b2b] cursor-pointer ">
               <div className="p-3 flex gap-3 items-center">
                 <div
                   className="bg-green-600 w-14 h-14 rounded-full flex items-center justify-center
@@ -61,11 +61,11 @@ const page = () => {
                 </div>
                 <div className="flex flex-col leading-tight">
                   <p className="font-semibold">Monika Sharma</p>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 text-sm dark:text-white">
                     {" "}
                     Sponsered <span>Join Our</span>
                   </p>
-                  <p className="text-gray-500 text-sm">Upcoming Hiring Drive</p>
+                  <p className="text-gray-500 text-sm dark:text-white">Upcoming Hiring Drive</p>
                 </div>
               </div>
             </div>
@@ -104,7 +104,7 @@ const page = () => {
                         <p className="font-semibold">Monika Sharma</p>
                         <p className="text-gray-600s">Hello Devendra!</p>
                         </div>
-                        <div className="h-[150px] w-full overflow-y-scroll text-sm">
+                        <div className="h-[150px] w-full overflow-y-scroll text-sm my-scroll-container">
                             <p>React is a JavaScript library developed by Facebook that, among other things, was used to build Instagram.com. It aims to allow developers to easily create user interfaces for websites, desktop apps and mobile applications. A React application usually works fast and efficientl</p>
                         </div>
                     </div>

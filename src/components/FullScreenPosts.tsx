@@ -53,20 +53,26 @@ const FullScreenPosts = ({ setShowFullScreenPost, posts }: any) => {
         >
           <X className="font-semibold text-2xl" />
         </div>
-        <div className='w-[65%]  flex justify-center items-center bg-black p-5'>
-          <div className="w-full ">
-            {posts?.post_image ? (
-              <img
-                src={posts.post_image}
-                className="w-full object-contain"
-                alt=""
-              />
-            ) : null}
-            {posts?.post_video ? (
-              <video src={posts.post_video} controls className="max-h-[400px] w-full text-center" />
-            ) : null}
-          </div>
-        </div>
+       <div className="w-[65%] h-fit flex justify-center items-center bg-black p-5 rounded-2xl">
+  <div className="w-full h-full">
+    {posts?.post_image && (
+      <img
+        src={posts.post_image}
+        className="w-full max-h-[80vh] object-contain "
+        alt="Post image"
+      />
+    )}
+
+    {posts?.post_video && (
+      <video
+        src={posts.post_video}
+        controls
+        className="w-full max-h-[400px] rounded-lg"
+      />
+    )}
+  </div>
+</div>
+
 
         <div className='w-[35%] flex flex-col justify-between'>
           <div className="px-4 pt-4 flex flex-col gap-3">
@@ -96,7 +102,7 @@ const FullScreenPosts = ({ setShowFullScreenPost, posts }: any) => {
           </div>
 
           <div className="flex flex-col items-center  gap-5 w-full p-2 h-[300px] overflow-y-scroll my-scroll-container">
-            {userComments.map((comment: any, i: any) => (
+            {userComments?.map((comment: any, i: any) => (
               <CommentsOnPost key={i} comment={comment} index={i} />
             ))}
 

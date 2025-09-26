@@ -40,7 +40,7 @@ const Page = () => {
   };
 
   return (
-    <div className="absolute top-0 left-0 px-16 w-full">
+    <div className="absolute top-0 left-0 bottom-0   px-16 w-full">
       {/* Logo */}
       <div className="w-36 h-16">
         <Image className="w-full" src={logo} alt="Company Logo" />
@@ -48,9 +48,9 @@ const Page = () => {
 
       {/* Sign-in Container */}
       <div className="flex flex-col items-center gap-10">
-        <div className="w-[340px] flex flex-col gap-3 bg-white rounded-lg px-3 py-5">
+        <div className="w-[340px] flex flex-col gap-3 bg-white dark:bg-[#2b2b2b] rounded-lg px-3 py-5">
           {/* Header */}
-          <div>
+          <div className="dark:text-white">
             <p className="text-[32px] font-medium">Sign in</p>
             <p className="text-sm">Stay updated on your professional world.</p>
           </div>
@@ -59,9 +59,9 @@ const Page = () => {
           <form onSubmit={handleSubmit(signup)} className="flex flex-col gap-3">
             {/* Username */}
             <div className="w-full flex flex-col gap-1">
-              <label className="text-sm font-medium">Username</label>
+              {/* <label className="text-sm font-medium dark:text-white">Username</label> */}
               <input
-                className="border-2 border-gray-500 p-1 placeholder:text-[14px] outline-none rounded"
+                className="border-2 border-gray-500 p-1 placeholder:text-[14px] outline-none rounded dark:placeholder:text-white"
                 type="text"
                 placeholder="Username"
                 {...register("username")}
@@ -75,9 +75,9 @@ const Page = () => {
 
             {/* Email */}
             <div className="w-full flex flex-col gap-1">
-              <label className="text-sm font-medium">Email or phone</label>
+              {/* <label className="text-sm font-medium dark:text-white">Email or phone</label> */}
               <input
-                className="border-2 border-gray-500 p-1 placeholder:text-[14px] outline-none rounded"
+                className="border-2 border-gray-500 p-1 placeholder:text-[14px] outline-none rounded dark:placeholder:text-white"
                 type="email"
                 placeholder="Email or phone"
                 {...register("email")}
@@ -89,9 +89,9 @@ const Page = () => {
 
             {/* Password */}
             <div className="w-full flex flex-col gap-1">
-              <label className="text-sm font-medium">Password</label>
+              {/* <label className="text-sm font-medium dark:text-white">Password</label> */}
               <input
-                className="border-2 border-gray-500 p-1 placeholder:text-[14px] outline-none rounded"
+                className="border-2 border-gray-500 p-1 placeholder:text-[14px] outline-none rounded dark:placeholder:text-white"
                 type="password"
                 placeholder="Password"
                 {...register("password")}
@@ -105,9 +105,9 @@ const Page = () => {
 
             {/* Full Name */}
             <div className="w-full flex flex-col gap-1">
-              <label className="text-sm font-medium">Full Name</label>
+              {/* <label className="text-sm font-medium dark:text-white">Full Name</label> */}
               <input
-                className="border-2 border-gray-500 p-1 placeholder:text-[14px] outline-none rounded"
+                className="border-2 border-gray-500 p-1 placeholder:text-[14px] outline-none rounded dark:placeholder:text-white"
                 type="text"
                 placeholder="Full Name"
                 {...register("full_name")}
@@ -120,7 +120,7 @@ const Page = () => {
             </div>
 
             {/* Forget Password */}
-            <p className="text-[14px] cursor-pointer hover:text-blue-900 text-blue-700 font-semibold">
+            <p className="text-[14px] cursor-pointer hover:text-blue-900 text-blue-700 font-semibold dark:text-blue-400">
               Forget password?
             </p>
 
@@ -136,33 +136,33 @@ const Page = () => {
 
           {/* Divider */}
           <div className="relative flex flex-col items-center py-1 justify-center">
-            <hr className="absolute top-[21px] w-full bg-gray-600 rounded-full" />
-            <p className="z-10 bg-white px-3">or</p>
+            <hr className="absolute top-[20px] w-full bg-gray-600 rounded-full dark:bg-white" />
+            <p className="z-10 bg-white px-3 dark:bg-[#2b2b2b] dark:text-white">or</p>
           </div>
 
           {/* Terms */}
-          <p className="text-sm">
+          <p className="text-sm dark:text-white">
             By clicking Agree & Join or Continue, you agree to the LinkedIn{" "}
-            <span className="text-blue-900">User Agreement, Privacy Policy,</span>{" "}
-            and <span className="text-blue-900">Cookie Policy.</span>
+            <span className="text-blue-900 dark:text-blue-400">User Agreement, Privacy Policy,</span>{" "}
+            and <span className="text-blue-900 dark:text-blue-400">Cookie Policy.</span>
           </p>
 
           {/* Social Buttons */}
           <button
             type="button"
-            className="w-full border border-black p-2 text-[15px] rounded-full cursor-pointer"
+            className="w-full border border-black p-2 text-[15px] rounded-full cursor-pointer dark:border-white dark:text-white"
           >
             Continue with Google
           </button>
           <button
             type="button"
-            className="w-full border border-black p-2 text-[15px] rounded-full cursor-pointer font-semibold"
+            className="w-full border border-black p-2 text-[15px] rounded-full cursor-pointer font-semibold dark:border-white dark:text-white"
           >
             Continue with Microsoft
           </button>
           <button
             type="button"
-            className="w-full border border-black p-2 text-[15px] rounded-full text-gray-700 cursor-pointer font-semibold"
+            className="w-full border border-black p-2 text-[15px] rounded-full text-gray-700 cursor-pointer font-semibold dark:border-white dark:text-white"
           >
             Continue with Apple
           </button>

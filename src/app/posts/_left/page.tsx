@@ -5,7 +5,7 @@ const Left = ({user}: {user: any}) => {
 
   return (
   <div className="flex flex-col gap-3">
-      <div className=" bg-white rounded-xl overflow-hidden border border-gray-300 ">
+      <div className=" bg-white dark:bg-[#2b2b2b] dark:text-white rounded-xl overflow-hidden border border-gray-300 ">
         <div className=" relative h-16 ">
           {user?.cover_image ? (
             <img src={user.cover_image} className='w-full h-full object-cover overflow-hidden' alt="" />
@@ -21,9 +21,9 @@ const Left = ({user}: {user: any}) => {
           </div>
         </div>
         <div className="px-4 py-4 flex flex-col mt-10">
-          <p className="text-xl font-semibold text-gray-8">{user.full_name}</p>
-          <p className="text-[12px] text-gray-900">Web Developer</p>
-          <p className="text-[12px] text-gray-500">Bhopal, Madhya Pradesh</p>
+          <p className="text-xl font-semibold text-gray-800 dark:text-white">{user.full_name}</p>
+          <p className="text-[12px] text-gray-900 dark:text-white">Web Developer</p>
+          <p className="text-[12px] text-gray-500 dark:text-white">Bhopal, Madhya Pradesh</p>
        
         </div>
       </div>
