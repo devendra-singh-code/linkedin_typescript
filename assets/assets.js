@@ -12,6 +12,10 @@ import minilogo from './minilogo.png'
 import one from './1.png'
 import aws from './aws1.jpg'
 import sbi from './sbi.jpg'
+import google from "./google.png"
+import microsoft from './microsoft.png'
+import one1 from './12.png'
+import four from './4.png'
 
 export const assets = {
     logo,
@@ -25,7 +29,11 @@ export const assets = {
     minilogo, 
     one,
     aws,
-    user2
+    user2,
+    google,
+    microsoft,
+    one1,
+    four
 }
 
 export const menuItemsData = [

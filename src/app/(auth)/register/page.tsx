@@ -47,12 +47,13 @@ const Page = () => {
       </div>
 
       {/* Sign-in Container */}
-      <div className="flex flex-col items-center gap-10">
-        <div className="w-[340px] flex flex-col gap-3 bg-white dark:bg-[#2b2b2b] rounded-lg px-3 py-5">
+      <div className="flex flex-col items-center gap-5">
+           <p className="md:text-3xl text-xl text-center text-gray-900 dark:text-white">
+          Make the most of your professional life
+        </p>
+        <div className="w-[370px] flex flex-col gap-3 bg-white dark:bg-[#2b2b2b] rounded-lg px-3 py-5">
           {/* Header */}
           <div className="dark:text-white">
-            <p className="text-[32px] font-medium">Sign in</p>
-            <p className="text-sm">Stay updated on your professional world.</p>
           </div>
 
           {/* Form */}
@@ -61,7 +62,7 @@ const Page = () => {
             <div className="w-full flex flex-col gap-1">
               {/* <label className="text-sm font-medium dark:text-white">Username</label> */}
               <input
-                className="border-2 border-gray-500 p-1 placeholder:text-[14px] outline-none rounded dark:placeholder:text-white"
+                className="border-2 border-gray-400 p-2 placeholder:text-[14px] outline-none rounded dark:placeholder:text-white"
                 type="text"
                 placeholder="Username"
                 {...register("username")}
@@ -77,7 +78,7 @@ const Page = () => {
             <div className="w-full flex flex-col gap-1">
               {/* <label className="text-sm font-medium dark:text-white">Email or phone</label> */}
               <input
-                className="border-2 border-gray-500 p-1 placeholder:text-[14px] outline-none rounded dark:placeholder:text-white"
+                className="border-2 border-gray-400 p-2 placeholder:text-[14px] outline-none rounded dark:placeholder:text-white"
                 type="email"
                 placeholder="Email or phone"
                 {...register("email")}
@@ -91,7 +92,7 @@ const Page = () => {
             <div className="w-full flex flex-col gap-1">
               {/* <label className="text-sm font-medium dark:text-white">Password</label> */}
               <input
-                className="border-2 border-gray-500 p-1 placeholder:text-[14px] outline-none rounded dark:placeholder:text-white"
+                className="border-2 border-gray-400 p-2 placeholder:text-[14px] outline-none rounded dark:placeholder:text-white"
                 type="password"
                 placeholder="Password"
                 {...register("password")}
@@ -107,7 +108,7 @@ const Page = () => {
             <div className="w-full flex flex-col gap-1">
               {/* <label className="text-sm font-medium dark:text-white">Full Name</label> */}
               <input
-                className="border-2 border-gray-500 p-1 placeholder:text-[14px] outline-none rounded dark:placeholder:text-white"
+                className="border-2 border-gray-400 p-2 placeholder:text-[14px] outline-none rounded dark:placeholder:text-white"
                 type="text"
                 placeholder="Full Name"
                 {...register("full_name")}
@@ -119,16 +120,18 @@ const Page = () => {
               )}
             </div>
 
-            {/* Forget Password */}
-            <p className="text-[14px] cursor-pointer hover:text-blue-900 text-blue-700 font-semibold dark:text-blue-400">
-              Forget password?
-            </p>
+           <p className="text-[12px] dark:text-white">
+            By clicking Agree & Join or Continue, you agree to the LinkedIn{" "}
+            <span className="text-blue-900 dark:text-blue-400">User Agreement, Privacy Policy,</span>{" "}
+            and <span className="text-blue-900 dark:text-blue-400">Cookie Policy.</span>
+          </p>
+           
 
             {/* Submit Button */}
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-blue-600 hover:bg-blue-800 p-2 rounded-full text-white cursor-pointer focus:scale-95 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-blue-600 hover:bg-blue-800 p-3 rounded-full text-white cursor-pointer focus:scale-95 transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "Signing in..." : "Sign in"}
             </button>
@@ -141,11 +144,7 @@ const Page = () => {
           </div>
 
           {/* Terms */}
-          <p className="text-sm dark:text-white">
-            By clicking Agree & Join or Continue, you agree to the LinkedIn{" "}
-            <span className="text-blue-900 dark:text-blue-400">User Agreement, Privacy Policy,</span>{" "}
-            and <span className="text-blue-900 dark:text-blue-400">Cookie Policy.</span>
-          </p>
+        
 
           {/* Social Buttons */}
           <button

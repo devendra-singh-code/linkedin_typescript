@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-    title: "Login"
+    title: "LinkedIn Login, Sign in"
 }
 
 export default function LoginLayout({children}: {children: React.ReactNode}){

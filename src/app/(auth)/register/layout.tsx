@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-    title: "Register"
+    title: "Sign Up"
 }
 
 export default function RegisterLayout({children}: {children: React.ReactNode}){
